@@ -1,3 +1,13 @@
 <resources>
-    <string name="app_name">mircod-test</string>
+    <string name="app_name">Mircod Test</string>
+    <string name="me_label">Test task by Meshcherov Rail</string>
+    <string name="list_label">Candidates</string>
+    <string name="one_three_candidate_count">%d person</string>
+    <string name="other_candidate_count">%d people</string>
+    <string name="add_candidate">add candidate</string>
+    <string name="user">user</string>
+    <string name="candidate_photo">candidate photo</string>
+    <string name="ok">ok</string>
+    <string name="message">It will be added soon</string>
+    <string name="error">Error!</string>
 </resources>
