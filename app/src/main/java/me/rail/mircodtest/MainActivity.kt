@@ -3,6 +3,8 @@ package me.rail.mircodtest
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import me.rail.mircodtest.databinding.ActivityMainBinding
 import me.rail.mircodtest.service.Candidate
 import me.rail.mircodtest.service.ServiceBuilder
@@ -26,6 +28,12 @@ class MainActivity : AppCompatActivity() {
                 response: Response<List<Candidate>>
             ) {
                 val candidates = response.body()
+
+                if (candidates != null) {
+                    binding?.recyclerview?.layoutManager =
+                        LinearLayoutManager(applicationContext, RecyclerView.VERTICAL, false)
+                    binding?.recyclerview?.adapter = Adapter(applicationContext, candidates)
+                }
             }
 
             override fun onFailure(call: Call<List<Candidate>>, t: Throwable) {
