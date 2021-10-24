@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import me.rail.mircodtest.databinding.ActivityMainBinding
 import me.rail.mircodtest.service.Candidate
 import me.rail.mircodtest.service.ServiceBuilder
@@ -20,6 +21,23 @@ class MainActivity : AppCompatActivity() {
 
         binding = DataBindingUtil.setContentView(this, R.layout.activity_main)
 
+        val soonDialogBuilder = MaterialAlertDialogBuilder(
+            this,
+            R.style.AlertDialogStyle
+        )
+            .setMessage(resources.getString(R.string.message))
+            .setNeutralButton(resources.getString(R.string.ok)) { _, _ ->
+
+            }
+
+        binding?.user?.setOnClickListener {
+            soonDialogBuilder.show()
+        }
+
+        binding?.addCandidateFab?.setOnClickListener {
+            soonDialogBuilder.show()
+        }
+
         val service = ServiceBuilder.build()
 
         service.getCandidates().enqueue(object : Callback<List<Candidate>> {
@@ -32,10 +50,11 @@ class MainActivity : AppCompatActivity() {
                 if (candidates != null) {
                     val count = candidates.size
                     if (count in 1..3)
-                        binding?.listCount?.text = applicationContext.getString(R.string.one_three_candidate_count, count)
+                        binding?.listCount?.text =
+                            applicationContext.getString(R.string.one_three_candidate_count, count)
                     else
-                        binding?.listCount?.text = applicationContext.getString(R.string.other_candidate_count, count)
-                    //binding?.recyclerview?.setBackgroundColor(resources.getColor(R.color.white))
+                        binding?.listCount?.text =
+                            applicationContext.getString(R.string.other_candidate_count, count)
                     binding?.recyclerview?.layoutManager =
                         LinearLayoutManager(applicationContext, RecyclerView.VERTICAL, false)
                     binding?.recyclerview?.adapter = Adapter(applicationContext, candidates)
