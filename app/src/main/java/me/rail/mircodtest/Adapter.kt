@@ -4,9 +4,7 @@ import android.content.Context
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import coil.imageLoader
 import coil.load
-import coil.request.ImageRequest
 import me.rail.mircodtest.databinding.ItemCandidateBinding
 import me.rail.mircodtest.service.Candidate
 
@@ -24,7 +22,17 @@ class Adapter(private val context: Context, private val items: List<Candidate>) 
 
         holder.binding.itemView = item
 
-        holder.binding.image.load(item.image)
+        item.image_url?.let {
+            holder.binding.image.load(it) {
+                placeholder(R.drawable.placegolder)
+            }
+        }
+
+        item.imageUrl?.let {
+            holder.binding.image.load(it) {
+                placeholder(R.drawable.placegolder)
+            }
+        }
     }
 
     class ViewHolder(val binding: ItemCandidateBinding) : RecyclerView.ViewHolder(binding.root)

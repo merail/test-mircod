@@ -9,4 +9,5 @@
     <string name="candidate_photo">candidate photo</string>
     <string name="ok">ok</string>
     <string name="message">It will be added soon</string>
+    <string name="error">Error!</string>
 </resources>

@@ -1,6 +1,7 @@
 package me.rail.mircodtest
 
 import android.os.Bundle
+import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -48,6 +49,8 @@ class MainActivity : AppCompatActivity() {
                 val candidates = response.body()
 
                 if (candidates != null) {
+                    binding?.preloader?.visibility = View.GONE
+
                     val count = candidates.size
                     if (count in 1..3)
                         binding?.listCount?.text =
@@ -59,10 +62,16 @@ class MainActivity : AppCompatActivity() {
                         LinearLayoutManager(applicationContext, RecyclerView.VERTICAL, false)
                     binding?.recyclerview?.adapter = Adapter(applicationContext, candidates)
                 }
+                else {
+                    binding?.preloader?.visibility = View.GONE
+                }
             }
 
             override fun onFailure(call: Call<List<Candidate>>, t: Throwable) {
                 t.printStackTrace()
+
+                binding?.preloader?.visibility = View.GONE
+                binding?.error?.visibility = View.VISIBLE
             }
         })
     }

@@ -5,5 +5,6 @@ data class Candidate(
     val name: String,
     val city: String,
     val detail: String,
-    val image: String
+    val image_url: String?,
+    val imageUrl: String?
 )
