@@ -4,4 +4,7 @@
     <string name="list_label">Candidates</string>
     <string name="one_three_candidate_count">%d person</string>
     <string name="other_candidate_count">%d people</string>
+    <string name="add_candidate">add candidate</string>
+    <string name="user">user</string>
+    <string name="candidate_photo">candidate photo</string>
 </resources>

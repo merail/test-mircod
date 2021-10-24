@@ -14,8 +14,8 @@
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="15dp"
         android:layout_marginTop="10dp"
-        app:cardElevation="20dp"
-        app:cardCornerRadius="5dp">
+        app:cardCornerRadius="5dp"
+        app:cardElevation="10dp">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -32,7 +32,8 @@
                 <ImageView
                     android:id="@+id/image"
                     android:layout_width="40dp"
-                    android:layout_height="40dp" />
+                    android:layout_height="40dp"
+                    android:contentDescription="@string/candidate_photo" />
 
                 <LinearLayout
                     android:layout_width="wrap_content"
