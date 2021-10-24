@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">Mircod Test</string>
+    <string name="me_label">Test task by Meshcherov Rail</string>
+    <string name="list_label">Candidates</string>
+    <string name="one_three_candidate_count">%d person</string>
+    <string name="other_candidate_count">%d people</string>
 </resources>

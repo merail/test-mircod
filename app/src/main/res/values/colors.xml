@@ -8,5 +8,5 @@
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
 
-    <color name="city_color">#AAB0B9</color>
+    <color name="sub_label_color">#AAB0B9</color>
 </resources>

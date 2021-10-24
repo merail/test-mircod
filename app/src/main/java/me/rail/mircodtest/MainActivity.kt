@@ -30,6 +30,12 @@ class MainActivity : AppCompatActivity() {
                 val candidates = response.body()
 
                 if (candidates != null) {
+                    val count = candidates.size
+                    if (count in 1..3)
+                        binding?.listCount?.text = applicationContext.getString(R.string.one_three_candidate_count, count)
+                    else
+                        binding?.listCount?.text = applicationContext.getString(R.string.other_candidate_count, count)
+                    //binding?.recyclerview?.setBackgroundColor(resources.getColor(R.color.white))
                     binding?.recyclerview?.layoutManager =
                         LinearLayoutManager(applicationContext, RecyclerView.VERTICAL, false)
                     binding?.recyclerview?.adapter = Adapter(applicationContext, candidates)
