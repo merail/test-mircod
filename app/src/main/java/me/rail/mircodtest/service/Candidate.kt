@@ -1,4 +1,4 @@
-package me.rail.mircodtest
+package me.rail.mircodtest.service
 
 data class Candidate(
     val id: String,
